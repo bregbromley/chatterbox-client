@@ -4,11 +4,10 @@ var RoomsView = {
   $select: $('#rooms select'),
 
   initialize: function() {
-    //need to fill out
   },
 
   render: function() {
-    //need to fill out
+    $select.append('<option>Free</option>');
   }
 
 };

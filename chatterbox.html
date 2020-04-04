@@ -2,8 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>chatterbox</title>
+    <title font='minecraft'>chatterbox</title>
     <link rel="stylesheet" href="client/styles/styles.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <script src="node_modules/jquery/dist/jquery.js"></script>
     <script src="node_modules/underscore/underscore.js"></script>
     <script>
@@ -16,27 +17,34 @@
         if (search[search.length - 1] !== '?') {
           search += '&';
         }
-        search += 'username=' + (prompt('What is your name?') || 'anonymous');
+        search += 'username=' + (prompt('What is your name?') || 'Lion King');
         window.location.search = search;
       }
     </script>
   </head>
   <body>
     <div id="main">
-      <h1>chatterbox</h1>
+      <h1>Chatter Box</h1>
       <div class="spinner"><img src="client/images/spiffygif_46x46.gif"></div>
       <div id="rooms">
         Room:
-        <select></select>
-        <button>Add Room</button>
+        <select class = 'roomOptions'>
+          <option value="techno">Techno</option>
+          <option value="deep house">Deep House</option>
+          <option value="jazz">Jazz</option>
+          </select>
+        <button class="w3-btn w3-round w3-black w3-hover-purple" id = 'button'>Add Room</button>
+      </div>
+      <p></p>
+      <div class = 'refresh'>
+        <button class="w3-btn w3-round w3-black w3-hover-purple refresh">Refresh Messages</button>
       </div>
       <form action="#" id="send" method="post">
         <input type="text" name="message" id="message"/>
-        <input type="submit" name="submit" class="submit"/>
+        <input type="submit" name="submit" id="submitbutton" class="submit w3-btn w3-round w3-black w3-hover-purple"/>
       </form>
     </div>
-    <div class='refreshChats'><button>Refresh</button></div>
-    <div id="chats"></div>
+    <div id="chats" class="chats"></div>
     <script src="client/env/config.js"></script>
     <script src="client/scripts/parse.js"></script>
     <script src="client/scripts/rooms.js"></script>
@@ -47,6 +55,7 @@
     <script src="client/scripts/messageView.js"></script>
     <script src="client/scripts/messagesView.js"></script>
     <script src="client/scripts/app.js"></script>
+    <script src="client/scripts/jq.js"></script>
     <script>
       $(() => App.initialize());
     </script>

@@ -7,10 +7,19 @@ var FormView = {
   },
 
   handleSubmit: function(event) {
+
     // Stop the browser from submitting the form
     event.preventDefault();
+    var text = $("#message").val();
+    var user = window.location.search.substr(10);
+    var message = {
+      username: user,
+      text: text,
+      roomname: '4chan'
+    };
+    Parse.create(message);
 
-    console.log('click!');
+    console.log('im a cow');
   },
 
   setStatus: function(active) {

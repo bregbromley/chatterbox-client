@@ -21,29 +21,49 @@ var App = {
   //   text: 'trololo',
   //   roomname: '4chan'
   // };
+
+
+  /*
+  1. Call Parse.read all to get the data
+  2. Save message into model
+  3. Render the updated data into the DOM
+
+  */
   fetch: function(callback = ()=>{}) {
     Parse.readAll((data) => {
       // examine the response from the server request://parse first and check data. error catching>> msg update and room view
+      // get all the data.
+      // we will update the values in models such as messages, rooms, and friends
 
       if (!data.results || !data.results.length) {
         return;
       }
-      //loop throough msgs
-      for (var i = 0; i < data.results.length; i++) {
-        var $message = $('<div class = tweet></div>');
-        $message.text(data.results[i].text);
-        var $user = data.results[i].username;
-        $($message).prepend($user);
-        $('#chats').append($message);
-      }
-      // document.body.addEventListener('click', () => {console.log('hey man')})
 
+
+      // loop throough msgs
+      for (var i = 0; i < data.results.length; i++) {
+        var $chats = $('#chats');
+        var $message = $('<div class = msg></div>');
+        var $user = $('<div class = user></div>');
+        $message.text(data.results[i].text);
+        $user.text(data.results[i].username + ' said: ');
+        // $tweet = $('<div class = tweet></div>')
+        // $tweet.text
+        // $message.prepend("Name " + $user + " : ");
+        $chats.append('<p>', $user, $message, '</p>');
+        // $chats.append('<br>')
+      }
+      // document.body.addEventListener('click', () => { console.log('hey man'); });
 
       console.log(data);
 
       callback();
     });
   },
+
+  //call creact function.
+
+  // $(".fresh").click(console.log('working'));
 
   startSpinner: function() {
     App.$spinner.show();
