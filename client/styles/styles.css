@@ -1,25 +1,38 @@
 body {
-    background: #eee;
+    background:#222;
     text-align: center;
     padding: 0 25px;
-    font-family: arial, sans-serif;
-}
 
+}
+@font-face {
+    font-family: 'minecraft';
+    src:
+	local('minecraft'),
+	url('/client/font/minecraft.ttf') format('truetype');
+}
 #main, #chats {
-    width: 500px;
+    width: 800px;
     margin: auto;
     text-align: left;
-    background: white;
+    background: #333;
     padding: 50px 60px;
     border: solid #ddd;
     border-width: 0 1px 1px 1px;
-}
+    font-family: verdana;
+    color:beige
 
+}
+title {
+    font-family: "minecraft", 'verdana';
+    font-size: 50px;
+}
 #main h1 {
     margin-top: 0;
-    font-size: 35px;
-    margin-bottom: 5px;
+    font-size: 75px;
+    margin-bottom: 10px;
     padding: 5px;
+    font-family: "minecraft", 'verdana';
+    color: beige;
 }
 
 #main h1 span {
@@ -62,7 +75,7 @@ form input[type=text] {
 .chat {
     padding: 5px;
     margin-bottom: 5px;
-    background-color: #eee;
+    background-color: beige;
 }
 
 .chat .username {
@@ -87,4 +100,12 @@ form input[type=text] {
     color: #fff;
     background-color: #0090da;
 }
-
+#message {
+    background-color: grey;
+    border-color: #333;
+}
+.roomOptions {
+    background-color: grey;
+    border-color: #333;
+    color: black
+}

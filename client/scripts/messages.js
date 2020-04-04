@@ -1,5 +1,7 @@
 var Messages = {
-  //need to fill out
+  username:
+  text:
+  roomname:
 
 };
 

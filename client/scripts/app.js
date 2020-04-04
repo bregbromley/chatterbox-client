@@ -28,7 +28,7 @@ var App = {
       if (!data.results || !data.results.length) {
         return;
       }
-      //loop throough msgs
+      // loop throough msgs
       for (var i = 0; i < data.results.length; i++) {
         var $message = $('<div class = tweet></div>');
         $message.text(data.results[i].text);
@@ -36,8 +36,7 @@ var App = {
         $($message).prepend($user);
         $('#chats').append($message);
       }
-      // document.body.addEventListener('click', () => {console.log('hey man')})
-
+      document.body.addEventListener('click', () => {console.log('hey man')})
 
       console.log(data);
 
