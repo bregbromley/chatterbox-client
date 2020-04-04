@@ -30,11 +30,16 @@ var App = {
       }
       // loop throough msgs
       for (var i = 0; i < data.results.length; i++) {
-        var $message = $('<div class = tweet></div>');
+        var $chats = $('#chats')
+        var $message = $('<div class = msg></div>')
+        var $user = $('<div class = user></div>');
         $message.text(data.results[i].text);
-        var $user = data.results[i].username;
-        $($message).prepend($user);
-        $('#chats').append($message);
+        $user.text(data.results[i].username + ' said: ');
+        $tweet = $('<div class = tweet></div>')
+        $tweet.text
+        // $message.prepend("Name " + $user + " : ");
+        $chats.append('<p>', $user, $message, '</p>');
+        // $chats.append('<br>')
       }
       document.body.addEventListener('click', () => {console.log('hey man')})
 

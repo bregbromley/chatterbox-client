@@ -7,10 +7,13 @@ var MessagesView = {
     //4th
   },
 
-  renderMessage: function(message) {
+  renderMessage: function(message, username) {
     var $message = $('<div class = tweet></div>');
     $message.text(message);
     $message.appendTo('#chats');
+    var $user = $('<div class = user></div>');
+    $user.text(username);
+    $user.appendTo('#chats');
     console.log('im running');
   }
 
