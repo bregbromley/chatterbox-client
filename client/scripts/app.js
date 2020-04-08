@@ -15,6 +15,8 @@ var App = {
     App.startSpinner();
     App.fetch(App.stopSpinner);
 
+    // Poll for new messages every 3 sec
+  //    setInterval(App.fetch, 3000);
   },
   // var message = {
   //   username: 'shawndrost',
@@ -39,23 +41,10 @@ var App = {
         return;
       }
 
+      Rooms.update(data.results, RoomsView.render);
+      Messages.update(data.results, MessagesView.render);
 
-      // loop throough msgs
-      for (var i = 0; i < data.results.length; i++) {
-        var $chats = $('#chats');
-        var $message = $('<div class = msg></div>');
-        var $user = $('<div class = user></div>');
-        $message.text(data.results[i].text);
-        $user.text(data.results[i].username + ' said: ');
-        // $tweet = $('<div class = tweet></div>')
-        // $tweet.text
-        // $message.prepend("Name " + $user + " : ");
-        $chats.append('<p>', $user, $message, '</p>');
-        // $chats.append('<br>')
-      }
-      // document.body.addEventListener('click', () => { console.log('hey man'); });
-
-      console.log(data);
+      console.log('data', data);
 
       callback();
     });
@@ -75,3 +64,20 @@ var App = {
     FormView.setStatus(false);
   }
 };
+
+
+
+// // loop throough msgs
+// for (var i = 0; i < data.results.length; i++) {
+//   var $chats = $('#chats');
+//   var $message = $('<div class = msg></div>');
+//   var $user = $('<div class = user></div>');
+//   $message.text(data.results[i].text);
+//   $user.text(data.results[i].username + ' said: ');
+//   // $tweet = $('<div class = tweet></div>')
+//   // $tweet.text
+//   // $message.prepend("Name " + $user + " : ");
+//   $chats.append('<p>', $user, $message, '</p>');
+//   // $chats.append('<br>')
+// }
+// // document.body.addEventListener('click', () => { console.log('hey man'); });

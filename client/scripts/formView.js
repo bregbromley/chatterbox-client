@@ -10,14 +10,17 @@ var FormView = {
 
     // Stop the browser from submitting the form
     event.preventDefault();
-    var text = $("#message").val();
-    var user = window.location.search.substr(10);
+    var text = $('#message').val();
+    var user = App.username;
     var message = {
       username: user,
       text: text,
-      roomname: '4chan'
+      roomname: Rooms.selected || 'lobby'
     };
-    Parse.create(message);
+    Parse.create(message, (data) => {
+      _.extend(message, data);
+      Messages.add(message, MessagesView.render);
+    });
 
     console.log('im a cow');
   },
